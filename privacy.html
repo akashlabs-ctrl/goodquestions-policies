@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Privacy Notice | GoodQuestions Publisher</title>
+  <style>
+    body { margin: 0; background: #f7f8fa; color: #20252b; font: 18px/1.65 system-ui, sans-serif; }
+    main { max-width: 780px; margin: auto; padding: 40px 24px 64px; }
+    h1, h2 { line-height: 1.25; }
+    h1 { font-size: 2rem; }
+    h2 { margin-top: 32px; font-size: 1.3rem; }
+    a { color: #1257a6; overflow-wrap: anywhere; }
+    .meta { color: #56606c; font-size: .95rem; }
+    footer { margin-top: 40px; border-top: 1px solid #ccd2da; padding-top: 20px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>GoodQuestions Publisher: Privacy Notice</h1>
+  <p class="meta">Last updated: 6 November 2026</p>
+
+  <h2>1. Scope and contact</h2>
+  <p>GoodQuestions Publisher is the private tool used by the operator of
+    <strong>@goodquestionsai</strong> to manage its own Instagram professional account.
+    It is not a public service for connecting other businesses' accounts.
+    Privacy questions and requests can be sent to
+    <a href="mailto:goodquestionsai@gmail.com">goodquestionsai@gmail.com</a>.</p>
+
+  <h2>2. Information the tool processes</h2>
+  <ul>
+    <li>Instagram account, post, comment and author identifiers; usernames;
+      public comment text; and relevant post captions or saved slide text.</li>
+    <li>Owner-provided topics, account instructions and feedback; generated
+      drafts; proposed replies; and approval, rejection and publishing decisions.</li>
+    <li>Telegram owner/chat identifiers used for private review and notifications.</li>
+    <li>Operational records, including timestamps, delivery/deduplication state,
+      AI request/response audit records, usage estimates and error/status metadata.</li>
+    <li>Private authorization credentials and configuration needed to connect
+      the owner's Instagram, Telegram and service-provider accounts.</li>
+  </ul>
+  <p>The <code>messages</code> webhook field is subscribed, but this version
+    ignores DM notifications. It does not archive DM content, use it for AI
+    reply drafting, or send DM replies. Please do not put passwords, access
+    tokens, financial details or other sensitive information in comments or DMs.</p>
+
+  <h2>3. Why information is used</h2>
+  <p>The tool supports creating and reviewing the owner's posts, receiving
+    relevant comments, preparing contextual replies when processing is enabled,
+    preventing duplicate actions, enforcing approval and spending controls,
+    maintaining an audit trail, and investigating operational problems.
+    The app has no data-selling or advertising-audience functionality.</p>
+
+  <h2>4. Platforms and service providers</h2>
+  <ul>
+    <li><strong>Meta/Instagram:</strong> supported APIs receive publishing or
+      reply requests when authorized. Public content remains subject to
+      Instagram's own settings and policies.</li>
+    <li><strong>Telegram:</strong> the owner receives private draft/review
+      messages, which can include the original comment, post context and
+      proposed response.</li>
+    <li><strong>OpenAI:</strong> when real AI generation is enabled, owner
+      inputs and relevant context are sent to the configured API. For comment
+      drafting, this can include comment text and post context. Detected
+      contact information or sensitive terms are escalated before a comment
+      AI call, but this is not a guarantee of detecting every sensitive item.</li>
+    <li><strong>AWS:</strong> the private application/database/media are hosted
+      on the existing Mumbai server. Temporary publishing images can be
+      stored in a private S3 bucket for Instagram retrieval.</li>
+    <li><strong>GitHub Pages:</strong> the public policy pages are hosted on
+      GitHub Pages. GitHub can process web request metadata under its own
+      privacy policies. Application code, credentials, private databases and
+      comment records are not published in the policy repository.</li>
+    <li><strong>Email provider:</strong> privacy/deletion requests sent to the
+      contact address are processed through that email service.</li>
+  </ul>
+  <p>Provider terms, security practices and retention policies also apply.
+    Processing can occur outside your country. This notice does not promise
+    that third-party providers retain no data.</p>
+
+  <h2>5. Storage and retention</h2>
+  <p>Business and audit information is stored in private SQLite databases and
+    retained private backups. Generated media can also be kept for review
+    and audit. There is currently <strong>no automatic purge schedule</strong>
+    for the database/audit history or retained backups; removal or
+    anonymization requires operator action. Older backups require separate
+    review and cleanup.</p>
+  <p>The owner can pause comment processing without discarding incoming
+    comment records. Callback diagnostics are designed not to record raw
+    webhook bodies, authorization secrets or verification URLs, but the
+    private business/audit records described above can contain personal data.</p>
+
+  <h2>6. Controls and security</h2>
+  <p>The tool uses private configuration files, restricted storage, HTTPS,
+    signed webhook validation, account-scoped processing, owner-only Telegram
+    controls and approval gates. These measures reduce risk but do not
+    guarantee absolute security. At present comment processing is paused and
+    replies are simulated; live or selective automatic replies require
+    separate owner activation.</p>
+
+  <h2>7. Requests and deletion</h2>
+  <p>You can contact the operator about information associated with you or
+    request its removal. Requests are handled manually and may require
+    limited proof of account control. See the
+    <a href="https://akashlabs-ctrl.github.io/goodquestions-policies/data-deletion.html">data-deletion instructions</a> for the process,
+    backup considerations and records that may need to be retained under
+    applicable legal or security requirements.</p>
+  <p>Deleting data held by this tool is separate from removing public content
+    on Instagram or records held independently by other providers. Use those
+    platforms' own controls for content and account data they control.</p>
+
+  <h2>8. Policy pages and changes</h2>
+  <p>These static policy pages do not embed analytics, tracking scripts or
+    third-party content, and do not set cookies. The operator will update
+    this notice when the tool's data handling changes.</p>
+  <footer><a href="https://akashlabs-ctrl.github.io/goodquestions-policies/data-deletion.html">Data-deletion instructions</a></footer>
+</main>
+</body>
+</html>
