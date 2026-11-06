@@ -23,7 +23,7 @@
 
   <h2>1. Scope and contact</h2>
   <p>GoodQuestions Publisher is the private tool used by the operator of
-    <strong>@goodquestionsai</strong> to manage its own Instagram professional account.
+    <strong>@arreyaar.ai</strong> to manage its own Instagram professional account.
     It is not a public service for connecting other businesses' accounts.
     Privacy questions and requests can be sent to
     <a href="mailto:goodquestionsai@gmail.com">goodquestionsai@gmail.com</a>.</p>
@@ -32,6 +32,9 @@
   <ul>
     <li>Instagram account, post, comment and author identifiers; usernames;
       public comment text; and relevant post captions or saved slide text.</li>
+    <li>When DM handling is enabled, incoming private message text, message
+      and participant identifiers, delivery/echo metadata, and bounded recent
+      conversation context used for private reply review.</li>
     <li>Owner-provided topics, account instructions and feedback; generated
       drafts; proposed replies; and approval, rejection and publishing decisions.</li>
     <li>Telegram owner/chat identifiers used for private review and notifications.</li>
@@ -40,14 +43,18 @@
     <li>Private authorization credentials and configuration needed to connect
       the owner's Instagram, Telegram and service-provider accounts.</li>
   </ul>
-  <p>The <code>messages</code> webhook field is subscribed, but this version
-    ignores DM notifications. It does not archive DM content, use it for AI
-    reply drafting, or send DM replies. Please do not put passwords, access
+  <p>DM handling requires separate operator activation. When enabled, new
+    notifications are stored even while reply processing is paused. Eligible
+    nonsensitive text and up to six recent messages can be sent to OpenAI
+    after operator consent; private replies require the owner's Telegram
+    approval and a fresh check of the standard 24-hour messaging window.
+    Attachments are not interpreted and unsolicited outreach is not supported.
+    Please do not put passwords, access
     tokens, financial details or other sensitive information in comments or DMs.</p>
 
   <h2>3. Why information is used</h2>
   <p>The tool supports creating and reviewing the owner's posts, receiving
-    relevant comments, preparing contextual replies when processing is enabled,
+    relevant comments and, when enabled, private messages, preparing contextual replies,
     preventing duplicate actions, enforcing approval and spending controls,
     maintaining an audit trail, and investigating operational problems.
     The app has no data-selling or advertising-audience functionality.</p>
@@ -58,20 +65,23 @@
       reply requests when authorized. Public content remains subject to
       Instagram's own settings and policies.</li>
     <li><strong>Telegram:</strong> the owner receives private draft/review
-      messages, which can include the original comment, post context and
-      proposed response.</li>
+      messages, which can include the original comment, post context, eligible
+      incoming DM text and proposed public or private response. Detected
+      sensitive DM text is withheld from previews for manual Instagram handling.</li>
     <li><strong>OpenAI:</strong> when real AI generation is enabled, owner
       inputs and relevant context are sent to the configured API. For comment
-      drafting, this can include comment text and post context. Detected
+      drafting, this can include comment text and post context. With separate
+      DM consent, it can also include nonsensitive private text and bounded
+      recent conversation context. Detected
       contact information or sensitive terms are escalated before a comment
-      AI call, but this is not a guarantee of detecting every sensitive item.</li>
+      or DM AI call, but this is not a guarantee of detecting every sensitive item.</li>
     <li><strong>AWS:</strong> the private application/database/media are hosted
       on the existing Mumbai server. Temporary publishing images can be
       stored in a private S3 bucket for Instagram retrieval.</li>
     <li><strong>GitHub Pages:</strong> the public policy pages are hosted on
       GitHub Pages. GitHub can process web request metadata under its own
       privacy policies. Application code, credentials, private databases and
-      comment records are not published in the policy repository.</li>
+      comment or DM records are not published in the policy repository.</li>
     <li><strong>Email provider:</strong> privacy/deletion requests sent to the
       contact address are processed through that email service.</li>
   </ul>
@@ -86,8 +96,10 @@
     for the database/audit history or retained backups; removal or
     anonymization requires operator action. Older backups require separate
     review and cleanup.</p>
-  <p>The owner can pause comment processing without discarding incoming
-    comment records. Callback diagnostics are designed not to record raw
+  <p>The owner can independently pause comment or DM processing without discarding
+    enabled incoming records. DM text/context and provider request/response
+    audits are included in the private storage/backup retention described above.
+    Callback diagnostics are designed not to record raw
     webhook bodies, authorization secrets or verification URLs, but the
     private business/audit records described above can contain personal data.</p>
 
@@ -95,10 +107,11 @@
   <p>The tool uses private configuration files, restricted storage, HTTPS,
     signed webhook validation, account-scoped processing, owner-only Telegram
     controls and approval gates. These measures reduce risk but do not
-    guarantee absolute security. The operator can pause comment processing.
+    guarantee absolute security. The operator can pause comment and DM processing.
     In the approved comment workflow, AI prepares eligible replies and the
     owner reviews them in Telegram; a public Instagram reply is sent only
-    after the owner's explicit approval. Selective automatic sending is
+    after the owner's explicit approval. The DM workflow similarly requires
+    explicit owner approval for every private reply. Selective automatic sending is
     not enabled and would require separate activation.</p>
 
   <h2>7. Requests and deletion</h2>

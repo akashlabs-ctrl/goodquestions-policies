@@ -42,7 +42,8 @@
     purge</strong>. Database/audit history is append-only during ordinary
     operation, so removing or anonymizing personal data requires a controlled
     administrator process. The operator must address applicable personal
-    data in stored comments, drafts, provider request/response audits and
+    data in stored comments, private DM text/context and participant identifiers,
+    drafts, provider request/response audits and
     other related records, while identifying any limited records that need
     retention under applicable legal or security requirements.</p>
   <p>The operator will communicate the result or any relevant retention
@@ -65,11 +66,15 @@
     controls. The operator can explain which service providers were involved
     and what additional requests may be applicable.</p>
 
-  <h2>6. Current DM behavior</h2>
-  <p>Although the <code>messages</code> webhook field is subscribed, this
-    release ignores DM notifications and has no DM content archive or DM
-    reply workflow. Operational/security metadata and any email request you
-    send can still require review.</p>
+  <h2>6. Private messages</h2>
+  <p>When DM handling is enabled, new notifications, private text, participant
+    identifiers, bounded conversation context, proposed replies and applicable
+    provider/audit records can be stored, including while replies are paused.
+    These records and retained backups are in scope for the manual process
+    above. Include your Instagram username and approximate message dates to
+    help locate them; do not email passwords, access tokens or unnecessary
+    sensitive conversation content. Unsending an Instagram message does not
+    automatically erase private application records, audits or backups.</p>
   <footer><a href="https://akashlabs-ctrl.github.io/goodquestions-policies/privacy.html">Privacy notice</a></footer>
 </main>
 </body>
